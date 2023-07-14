@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         tvYear=findViewById(R.id.textViewYear);
         tvStar=findViewById(R.id.textViewStar);
 
+
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
                 String data1 = etSinger.getText().toString();
                 String data2 = etYear.getText().toString();
                 DBHelper db = new DBHelper(MainActivity.this);
-                song Song = new song();
-                long inserted_id = db.insertNote(Song);
+                song song = new song(data,data1,data2);
+                long inserted_id = db.insertNote(song);
 
                 if (inserted_id != -1) {
                     al.clear();
